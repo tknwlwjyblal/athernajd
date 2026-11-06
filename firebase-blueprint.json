@@ -1,0 +1,109 @@
+{
+  "entities": {
+    "Project": {
+      "title": "Project",
+      "description": "Showcase portfolio project executed by Athar Najd",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the project",
+          "maxLength": 128
+        },
+        "title": {
+          "type": "string",
+          "description": "Arabic title of the interior or painting project",
+          "maxLength": 200,
+          "minLength": 2
+        },
+        "category": {
+          "type": "string",
+          "description": "Category slug for filtering",
+          "enum": ["majlis", "tv-units", "bedrooms", "storage"]
+        },
+        "categoryLabel": {
+          "type": "string",
+          "description": "Arabic label for category",
+          "maxLength": 100
+        },
+        "district": {
+          "type": "string",
+          "description": "Riyadh district or neighborhood",
+          "maxLength": 150
+        },
+        "image": {
+          "type": "string",
+          "description": "URL, cloud path, or compressed image data URI from device gallery",
+          "maxLength": 850000
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed project description and highlights",
+          "maxLength": 2000
+        },
+        "tags": {
+          "type": "array",
+          "description": "Keyword tags for the project"
+        },
+        "specs": {
+          "type": "object",
+          "description": "Execution technical specs like paint type and materials"
+        },
+        "featured": {
+          "type": "boolean",
+          "description": "Whether to highlight in featured spots"
+        },
+        "span": {
+          "type": "string",
+          "description": "Tailwind grid column span class",
+          "maxLength": 50
+        },
+        "viewsCount": {
+          "type": "number",
+          "description": "Number of times this project details or image was viewed"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Creation timestamp"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Last update timestamp"
+        }
+      },
+      "required": ["title", "category", "image", "district"]
+    },
+    "Admin": {
+      "title": "Admin",
+      "description": "Whitelisted administrator record",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "Email address of the administrator",
+          "maxLength": 200
+        },
+        "role": {
+          "type": "string",
+          "description": "Role granted (e.g. superadmin, editor)",
+          "maxLength": 50
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when admin status was created"
+        }
+      },
+      "required": ["email", "role"]
+    }
+  },
+  "firestore": {
+    "/projects/{projectId}": {
+      "schema": "Project",
+      "description": "Collection of showcase projects and portfolio items"
+    },
+    "/admins/{adminUid}": {
+      "schema": "Admin",
+      "description": "Designated administrators authorized to manage site content"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "أثر نجد للدهانات والديكورات",
+  "description": "منصة راقية لتشطيب وتنفيذ الدهانات العصرية، بديل الرخام والخشب، وتكسيات الجدران الهندسية بالرياض مع حاسبة تكلفة ومعرض مشاريع تفاعلي.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
